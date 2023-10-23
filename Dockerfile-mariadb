@@ -1,0 +1,11 @@
+# Linux x64
+FROM mariadb:lts
+
+LABEL maintainer="rimbert.rudisch-sommer@fh-hagenberg.at"
+
+COPY src /src
+# Install scripts
+RUN    cd /src \
+    && chmod 755 *.sh \
+    && /src/install-apt.sh \
+    && /src/basic_tools.sh
